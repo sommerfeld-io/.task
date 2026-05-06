@@ -13,10 +13,11 @@ tasks:
     desc: Cleanup the filesystem for this project
     cmds:
       - rm -rf .cache
-      - sudo rm -rf .ansible
-      - sudo rm -rf .devcontainer/ops
       - rm -rf node_modules
       - rm -rf target
+      - rm -rf tests/.vagrant
+      - sudo rm -rf .ansible
+      - sudo rm -rf .devcontainer/ops
       - find . -type f -exec chmod ugo+r {} +
       - find . -type d -exec chmod 755 {} +
       - find . -name "*.sh" -type f -exec chmod +x {} +
