@@ -8,3 +8,24 @@ tasks:
     cmds:
       - git submodule update --remote
       - "jq '{mcpServers: .servers}' .vscode/mcp.json > .mcp.json"
+
+  filesystem:
+    desc: Cleanup the filesystem for this project
+    cmds:
+      - rm -rf .cache
+      - sudo rm -rf .ansible
+      - sudo rm -rf .devcontainer/ops
+      - rm -rf node_modules
+      - rm -rf target
+      - find . -type f -exec chmod ugo+r {} +
+      - find . -type d -exec chmod 755 {} +
+      - find . -name "*.sh" -type f -exec chmod +x {} +
+      - task: update
+  
+  all:
+    desc: Cleanup the whole development environment for this project
+    cmds:
+      - docker compose down --remove-orphans
+      - docker container prune -f
+      - docker volume prune -f
+      - task: filesystem
