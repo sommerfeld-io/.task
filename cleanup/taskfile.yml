@@ -21,7 +21,6 @@ tasks:
       - find . -type f -exec chmod ugo+r {} +
       - find . -type d -exec chmod 755 {} +
       - find . -name "*.sh" -type f -exec chmod +x {} +
-      - task: update
 
   all:
     desc: Cleanup the whole development environment for this project
@@ -30,3 +29,4 @@ tasks:
       - docker container prune -f
       - docker volume prune -f
       - task: filesystem
+      - task: update
