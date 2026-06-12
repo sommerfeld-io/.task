@@ -7,7 +7,6 @@ tasks:
     desc: Update project dependencies and submodules
     cmds:
       - git submodule update --remote
-      - "jq '{mcpServers: .servers}' .vscode/mcp.json > .mcp.json"
 
   filesystem:
     desc: Cleanup the filesystem for this project
