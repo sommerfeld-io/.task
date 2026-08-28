@@ -11,9 +11,9 @@ tasks:
   filesystem:
     desc: Cleanup the filesystem for this project
     cmds:
-      - rm -rf .cache
+      - sudo rm -rf .cache
       - rm -rf node_modules
-      - rm -rf target
+      - sudo rm -rf target
       - rm -rf tests/.vagrant
       - sudo rm -rf .ansible
       - sudo rm -rf .devcontainer/ops
