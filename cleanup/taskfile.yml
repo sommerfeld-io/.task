@@ -14,7 +14,7 @@ tasks:
       - sudo rm -rf .cache
       - rm -rf node_modules
       - sudo rm -rf target
-      - rm -rf tests/.vagrant
+      - rm -rf tests/compose/.vagrant
       - sudo rm -rf .ansible
       - sudo rm -rf .devcontainer/ops
       - find . -type f -exec chmod ugo+r {} +
