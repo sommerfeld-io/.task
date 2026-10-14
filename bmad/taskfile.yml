@@ -4,7 +4,7 @@ version: '3.42.1'
 tasks:
 
   install:
-    desc: Install BMad Method (bmm module) for Claude Code if not already present. Use `--force` to update an existing installation.
+    desc: Install BMad Method for Claude Code if not already present. Use `--force` to update an existing installation.
     status:
       - test -d _bmad
     vars:
