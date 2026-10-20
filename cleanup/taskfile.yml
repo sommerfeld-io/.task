@@ -15,7 +15,9 @@ tasks:
       - rm -rf node_modules
       - sudo rm -rf target
       - rm -rf tests/compose/.vagrant
-      - sudo rm -rf .ansible
+      # Ansible caches (also nested ones, e.g. in role submodules) are often created as root by
+      # containers (e.g. ansible-lint), which would make the chmod commands below fail
+      - sudo find . -type d -name .ansible -prune -exec rm -rf {} +
       - sudo rm -rf .devcontainer/ops
       - find . -type f -exec chmod ugo+r {} +
       - find . -type d -exec chmod 755 {} +
